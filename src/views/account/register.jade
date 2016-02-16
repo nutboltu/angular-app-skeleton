@@ -1,0 +1,50 @@
+div(class="container account-form")
+    form(name="form", novalidate, ng-if = "!message.success")
+        .input-row
+            input.form-control.input-field(type="text", placeholder="*First name", onfocus="this.placeholder = ''", onblur="this.placeholder = '*First name'", required, ng-model="user.firstName", name="uFirstName"  )
+            div(ng-show="form.$submitted || form.uFirstName.$touched")
+                p.validation-error(ng-show="form.uFirstName.$error.required") Please enter first name
+        .input-row
+            input.form-control.input-field(type="text", placeholder="*Last name", onfocus="this.placeholder = ''", onblur="this.placeholder = '*Last name'", required, ng-model="user.lastName", name="uLastName" )
+            div(ng-show="form.$submitted || form.uLastName.$touched")
+                p.validation-error(ng-show="form.uLastName.$error.required") Please enter last name
+        .input-row
+            input.form-control.input-field(type="email", required, placeholder="*Email address", onfocus="this.placeholder = ''", onblur="this.placeholder = '*Email address'", ng-model="user.email", name="uEmail")
+            div(ng-show="form.$submitted || form.uEmail.$touched")
+                p.validation-error(ng-show="form.uEmail.$error.required") Please enter an email address
+                p.validation-error(ng-show="form.uEmail.$error.email") Invalid email address
+        .input-row
+            input.form-control.input-field(type="email", placeholder="*Confirm email address", onfocus="this.placeholder = ''", onblur="this.placeholder = '*Confirm email address'", ng-model="user.confirmEmail", name="uConfirmEmail", required, confirm-input="user.email" )
+            div(ng-show="form.$submitted || form.uConfirmEmail.$touched")
+                p.validation-error(ng-show="form.uConfirmEmail.$error.required || form.uConfirmEmail.$error.confirmed ") Please confirm your email address
+
+        .input-row
+            input.form-control.input-field(type="text", international-phone-number , country="country",  ng-model="user.phone", name="uPhone", required, placeholder="*Mobile Number")
+            div(ng-show="form.$submitted || form.uPhone.$touched")
+                p.validation-error(ng-show="form.uPhone.$error.required") Please confirm your mobile number
+                p.validation-error(ng-show="!form.uPhone.$error.required && form.uPhone.$invalid ") Please confirm valid mobile number
+        .input-row
+            input.form-control.input-field(type="password" placeholder="*Password" onfocus="this.placeholder = ''" onblur="this.placeholder = '*Password'" ng-model="user.password" name="uPassword" required="" ng-minlength="6" )
+            div(ng-show="form.$submitted || form.uPassword.$touched")
+                p.validation-error(ng-show="form.uPassword.$error.required") Please enter a password
+                p.validation-error(ng-show="form.uPassword.$error.minlength") Please use 6 or more characters
+        .input-row
+            input.form-control.input-field(type="password" placeholder="*Confirm password" onfocus="this.placeholder = ''" onblur="this.placeholder = '*Confirm password'" ng-model="user.confirmPassword" required name="uConfirmPassword" confirm-input="user.password")
+            div(ng-show="form.$submitted || form.uConfirmPassword.$touched")
+                p.validation-error(ng-show="form.uConfirmPassword.$error.required || form.uConfirmPassword.$error.confirmed ") Please confirm your password
+        .input-row
+            button(class="btn btn-lg btn-success btn-block" ng-click="submit(form)") REGISTER
+
+        .input-row
+            p(class="login-help") Already have an account? &nbsp
+                a(href="#/login") Login here
+
+    div(class="account-form-message" ng-if="message.success")
+        i(class="fa fa-3x fa-check-circle")
+        div(class="message")
+            p( ng-bind-html="message.description")
+            br
+            br
+
+
+

@@ -1,0 +1,29 @@
+.navbar-dark-blue{
+  background-color: $brand-color;
+  height: $header-height;
+  .container{
+    padding-left: 0;
+    margin-left: 30px;
+  }
+
+  .navbar-brand{
+      padding: 7px;
+      border: 1px white solid;
+      border-radius: 50% !important;
+      margin-top: 5px;
+      .brand-logo{
+        height: $logo-length;
+        width: $logo-length;
+      }
+  }
+  .navbar-headline{
+    color: white;
+    font-size: 30px;
+    line-height: $header-height;
+    text-align: center;
+  }
+}
+
+.navbar-header{
+  width: 100%;
+}

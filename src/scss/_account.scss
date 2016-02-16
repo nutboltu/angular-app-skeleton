@@ -1,0 +1,44 @@
+.account-form{
+  top: 100px;
+  position: relative;
+  width: 500px;
+  text-align: center;
+
+  .input-row{
+    padding: 10px 0;
+  }
+  .input-field{
+    font-size: 15px;
+    height: $input-height;
+    padding: 10px;
+    width: 100%;
+    background-color: $input-background-color;
+    border:none;
+  }
+  .intl-tel-input{
+    width: 100%;
+  }
+  .country-list{
+    width: 370px;
+  }
+  .login-help {
+    font-size: 12px;
+    line-height: 12px;
+    text-align: right;
+  }
+  .checkbox{
+    text-align: left;
+  }
+
+  .fa.fa-3x{
+    display: inline-block;
+    float: left;
+  }
+  .fa-check-circle:before{
+    color: $color-success;
+  }
+  .message{
+    text-align: left;
+    padding-left: 50px;
+  }
+}

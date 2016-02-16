@@ -1,0 +1,21 @@
+@import '../bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
+@import '../bower_components/font-awesome/scss/font-awesome';
+@import "../bower_components/intl-tel-input/src/css/intlTelInput";
+@import "variables";
+
+@import "account";
+@import "button";
+@import "error";
+@import "navbar";
+@import "left-menu";
+@import "tel-input";
+@import "utilities";
+
+html *
+{
+  border-radius: 0 !important;
+
+}
+
+
+
