@@ -1,6 +1,6 @@
 # Angular App Skeleton
 
-This repository is  the basic skeleton of an angular applicationp.
+This repository is  the basic skeleton of an angular application.
 
 It uses :
 
