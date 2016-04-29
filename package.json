@@ -10,9 +10,9 @@
   "license": "MIT",
   "keywords": [
     "angular",
-    "skeleton",
-    "angular app skeleton"
-
+    "seed",
+    "angular app seed",
+    "angular-app-seed"
   ],
   "homepage": "",
   "devDependencies": {
