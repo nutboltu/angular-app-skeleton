@@ -1,6 +1,6 @@
-# Angular App Seed
+# Angular Single Application Seed
 
-This repository is  the basic skeleton of an angular application.
+This is the seed of an angular single application.
 
 It uses :
 
