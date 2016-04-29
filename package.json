@@ -1,7 +1,7 @@
 {
-  "name": "Angular_App_Skeleton",
-  "version": "0.0.1",
-  "description": "This is the skeleton of angular application.",
+  "name": "Angular_Single_App_Seed",
+  "version": "0.0.2",
+  "description": "This is the seed of single angular application.",
   "repository": {
     "type": "git",
     "url": "https://github.com/NutBoltu/angular-app-skeleton.git"
