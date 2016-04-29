@@ -36,9 +36,12 @@ Go to src/ directory and run bower.
 ```
 bower install
 ```
-In the End run gulp in the root directory.
+Finally run gulp in the root directory.
 ```
 gulp
 ```
 The app will run in http://localhost:1990
+
+## Licence
+MIT licence
 
