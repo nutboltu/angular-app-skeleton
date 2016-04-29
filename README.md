@@ -1,4 +1,4 @@
-# Angular App Skeleton
+# Angular App Seed
 
 This repository is  the basic skeleton of an angular application.
 
