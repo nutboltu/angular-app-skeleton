@@ -1,5 +1,4 @@
 var appModules = [
-            'internationalPhoneNumber',
             'ui.bootstrap',
             'ui.router'];
 

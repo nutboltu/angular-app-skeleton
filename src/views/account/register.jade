@@ -19,11 +19,6 @@ div(class="container account-form")
                 p.validation-error(ng-show="form.uConfirmEmail.$error.required || form.uConfirmEmail.$error.confirmed ") Please confirm your email address
 
         .input-row
-            input.form-control.input-field(type="text", international-phone-number , country="country",  ng-model="user.phone", name="uPhone", required, placeholder="*Mobile Number")
-            div(ng-show="form.$submitted || form.uPhone.$touched")
-                p.validation-error(ng-show="form.uPhone.$error.required") Please confirm your mobile number
-                p.validation-error(ng-show="!form.uPhone.$error.required && form.uPhone.$invalid ") Please confirm valid mobile number
-        .input-row
             input.form-control.input-field(type="password" placeholder="*Password" onfocus="this.placeholder = ''" onblur="this.placeholder = '*Password'" ng-model="user.password" name="uPassword" required="" ng-minlength="6" )
             div(ng-show="form.$submitted || form.uPassword.$touched")
                 p.validation-error(ng-show="form.uPassword.$error.required") Please enter a password
