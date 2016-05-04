@@ -8,11 +8,11 @@ var jade        = require('gulp-jade');
 var sass = require('gulp-ruby-sass');
 
 
-var defaultTasks = ['libs', 'bootstrap-fonts', 'font-awesome-fonts','images','sass','jade','index','scripts', 'simple-server', 'watch'];
-var buildTasks = ['sass', 'simple-server'];
+var devTasks = ['libs', 'bootstrap-fonts', 'font-awesome-fonts','images','sass','jade','index','scripts', 'simple-server', 'watch'];
+var prodTasks = ['libs', 'bootstrap-fonts', 'font-awesome-fonts','images','sass','jade','index','scripts'];
 
-gulp.task('default', defaultTasks);
-gulp.task('build', buildTasks);
+gulp.task('dev', devTasks);
+gulp.task('prod', prodTasks);
 
 gulp.task('simple-server', function(){
     connect.server(config.serve);

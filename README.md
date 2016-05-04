@@ -1,6 +1,6 @@
-# Angular Single Application Seed
+# Angular app skeleton
 
-This is the seed of an angular single application.
+This is the seed of an angular application.
 
 It uses :
 
@@ -37,10 +37,23 @@ Go to src/ directory and run bower.
 bower install
 ```
 Finally run gulp in the root directory.
+### For development
+
 ```
-gulp
+gulp dev
+
 ```
-The app will run in http://localhost:1990
+
+The app will run in http://localhost:3000
+
+### For Production
+
+```
+gulp prod
+
+```
+and copy the dist/ directory to the server.
+
 
 ## Licence
 MIT licence

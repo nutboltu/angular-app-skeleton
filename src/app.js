@@ -1,4 +1,5 @@
 var appModules = [
+            'ngAnimate',
             'ui.bootstrap',
             'ui.router'];
 

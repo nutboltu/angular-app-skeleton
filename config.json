@@ -14,11 +14,7 @@
             "src/bower_components/angular/angular.min.js",
             "src/bower_components/angular-ui-router/release/angular-ui-router.js",
             "src/bower_components/angular-animate/angular-animate.min.js",
-            "src/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
-            "src/bower_components/jquery/dist/jquery.min.js",
-            "src/bower_components/intl-tel-input/build/js/intlTelInput.min.js",
-            "src/bower_components/intl-tel-input/lib/libphonenumber/build/utils.js",
-            "src/bower_components/international-phone-number/releases/international-phone-number.min.js"
+            "src/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"
         ],
         "css": [
             "src/css/**/*.css"
@@ -43,8 +39,7 @@
         ],
         "img":{
             "src":[
-                "src/img/**/*",
-                "src/bower_components/intl-tel-input/build/img/flags.png"
+                "src/img/**/*"
             ],
             "dist":"dist/img"
         },
@@ -66,7 +61,7 @@
     "serve": {
         "root": "dist/",
         "index": "dist/index.html",
-        "port": 1990,
+        "port": 3000,
         "livereload": true
 
     }

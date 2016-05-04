@@ -1,13 +1,13 @@
 {
   "name": "Angular-app-skeleton",
   "description": "This is a skeleton of an angular application",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "",
   "license": "MIT",
   "private": true,
   "dependencies": {
     "angular": "1.5.0",
-    "angular-animate": "1.4.7",
+    "angular-animate": "1.5.0",
     "angular-bootstrap":"0.14.3",
     "angular-ui-router": "0.2.13",
     "bootstrap-sass": "3.3.3",

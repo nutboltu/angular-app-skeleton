@@ -1,7 +1,7 @@
 {
-  "name": "Angular_Single_App_Seed",
+  "name": "Angular-app-skeleton",
   "version": "0.0.2",
-  "description": "This is the seed of single angular application.",
+  "description": "This is a skeleton of an angular application.",
   "repository": {
     "type": "git",
     "url": "https://github.com/NutBoltu/angular-app-skeleton.git"
@@ -9,12 +9,13 @@
   "author": "Farhad Yasir",
   "license": "MIT",
   "keywords": [
-    "angular single app seed",
+    "angular app skeleton",
     "angular-single-app-seed",
     "angular",
     "seed",
     "angular app seed",
-    "angular-app-seed"
+    "angular-app-seed",
+    "angular skeleton"
   ],
   "homepage": "",
   "devDependencies": {
