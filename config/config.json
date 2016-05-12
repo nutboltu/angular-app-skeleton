@@ -1,5 +1,4 @@
 {
-    "env": "dev",
     "use_sass": false,
     "bases": {
         "dist": "dist/",
@@ -10,7 +9,7 @@
             "src/**/*.js",
             "!src/bower_components/**"
         ],
-        "libs": [
+        "js": [
             "src/bower_components/angular/angular.min.js",
             "src/bower_components/angular-ui-router/release/angular-ui-router.js",
             "src/bower_components/angular-animate/angular-animate.min.js",
@@ -20,23 +19,14 @@
             "src/css/**/*.css"
         ],
         "sass": {
-            "src": [
-                "src/scss/**/*.scss"
-            ],
-            "scssSrc":"src/scss/stylesheet.scss",
-            "conf": {
-                "outputStyle": "nested",
-                "includePaths": [
-                    "src/bower_components/bootstrap-sass/assets/stylesheets/",
-                    "src/bower_components/font-awesome/scss/"
-                ]
-            },
+            "all": "src/scss/**/*.scss",
+            "src":"src/scss/stylesheet.scss",
             "dist":  "dist/css"
         },
-        "fonts": [
-            "src/bower_components/bootstrap/dist/fonts/*",
-            "src/bower_components/font-awesome/fonts/*"
-        ],
+        "fonts": {
+            "bootstrap": "src/bower_components/bootstrap/dist/fonts/*",
+            "fontAwesome":  "src/bower_components/font-awesome/fonts/*"
+        },
         "img":{
             "src":[
                 "src/img/**/*"

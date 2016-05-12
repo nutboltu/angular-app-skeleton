@@ -36,18 +36,22 @@ Go to src/ directory and run bower.
 ```
 bower install
 ```
-Finally run gulp in the root directory.
-### For development
+Set Environment variable APP_ENV as development or production or test.
 
+```
+export APP_ENV=development/production/test
+```
+
+Run gulp in the root directory.
+
+### For development
 ```
 gulp dev
 
 ```
-
 The app will run in http://localhost:3000
 
 ### For Production
-
 ```
 gulp prod
 

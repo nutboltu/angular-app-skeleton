@@ -5,20 +5,20 @@ var appModules = [
 
 var app = angular.module('myApp', appModules);
 
-app.run(function ($rootScope, $state, userModel) {
+app.run(function ($rootScope, $state, userService) {
     $rootScope.$on("$stateChangeStart", function (event, toState, toParams) {  
 
-        $rootScope.loggedIn = userModel.isAuthenticated(); 
+        $rootScope.loggedIn = userService.isAuthenticated(); 
 
         var loginRequired = toState.loginRequired;  
 
         //check if user is logged in 
-        if (userModel.isAuthenticated() && loginRequired == false) { 
+        if (userService.isAuthenticated() && loginRequired == false) { 
             event.preventDefault(); 
             $state.go('home');
               
         } 
-        else if(!userModel.isAuthenticated() && loginRequired == true) {  
+        else if(!userService.isAuthenticated() && loginRequired == true) {  
             event.preventDefault(); 
             $state.go('login'); 
         }

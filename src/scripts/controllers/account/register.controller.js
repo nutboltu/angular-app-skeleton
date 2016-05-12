@@ -5,7 +5,6 @@
         $scope.submit = function(form){
             if(form.$valid){
                 userService.register($scope.user).then(function(results){
-                    console.log(results);
                     if(results.success){
                         $scope.message = results;
                         $rootScope.$emit("header:title",results.title);

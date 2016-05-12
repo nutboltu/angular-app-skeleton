@@ -21,6 +21,7 @@
   "devDependencies": {
     "bower": "1.7.9",
     "gulp": "3.9.1",
+    "gulp-clean": "0.3.2",
     "gulp-concat": "2.6.0",
     "gulp-connect": "4.0.0",
     "gulp-include-source": "0.0.5",
