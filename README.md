@@ -47,14 +47,12 @@ Run gulp in the root directory.
 ### For development
 ```
 gulp dev
-
 ```
 The app will run in http://localhost:3000
 
 ### For Production
 ```
 gulp prod
-
 ```
 and copy the dist/ directory to the server.
 
