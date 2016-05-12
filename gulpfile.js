@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var argv = require('yargs').argv;
 var clean = require('gulp-clean');
 var config = require('./config/config.json');
 var concat = require('gulp-concat');
@@ -11,8 +12,21 @@ var sass = require('gulp-ruby-sass');
 var devTasks  = ['env', 'libs', 'bootstrap-fonts', 'font-awesome-fonts','images','sass','jade','index','scripts', 'simple-server', 'watch'];
 var prodTasks = ['env', 'libs', 'bootstrap-fonts', 'font-awesome-fonts','images','sass','jade','index','scripts'];
 
-gulp.task('dev', devTasks);
-gulp.task('prod', prodTasks);
+// set environment variable
+var env ;
+if (typeof argv.env !== "undefined") {
+    env = argv.env;
+}
+if(env == "dev"){
+    console.log("environment: dev");
+    gulp.task('run', devTasks);
+}
+else{
+    env = "prod";
+    console.log("default environment: prod");
+    gulp.task('run', prodTasks);
+}
+
 
 //All Tasks
 gulp.task('clean', function () {
@@ -24,7 +38,7 @@ gulp.task('env', function () {
     //name of the app is myApp
     gulp.src('config/env.json')
         .pipe(gulpNgConfig('myApp',{
-            environment: process.env.APP_ENV,
+            environment: env,
             createModule: false
         }))
         .pipe(gulp.dest('dist/'))
