@@ -1,5 +1,5 @@
 (function(){
-    app.service('userService', function($http, $q, $state, $window, apiService){
+    function userService($http, $q, $state, $window, apiService){
 
         var self = this;
 
@@ -18,12 +18,12 @@
             var defer = $q.defer();
             $http.post(apiService.USER.LOGIN, data)
                 .success(function(results){
-                        loginHandler(results.data);
-                        $state.go('home');
+                    loginHandler(results.data);
+                    $state.go('home');
                 }).error(function(results){
-                    defer.resolve(results.message);
+                defer.resolve(results.message);
 
-                });
+            });
             return defer.promise;
         };
 
@@ -39,12 +39,13 @@
                 .success(function(results){
                     defer.resolve(results);
                 }).error(function(results){
-                    defer.resolve(results.message);
-                });
+                defer.resolve(results.message);
+            });
             return defer.promise;
         };
 
-    });
+    }
+    app.service('userService', ['$http', '$q', '$state', '$window', 'apiService', userService]);
 
 
 }).call(this);

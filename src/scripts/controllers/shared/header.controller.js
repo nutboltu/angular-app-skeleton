@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    app.controller('headerController', function($rootScope, $scope, $state) {
+    function headerController($scope, $state) {
 
         $scope.logout = function(){
 
@@ -12,5 +12,6 @@
         };
 
         $scope.start();
-    });
+    }
+    app.controller('headerController', ['$scope', '$state', headerController]);
 }(this));

@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    app.controller('loginController', function($scope, userService) {
+    function loginController($scope, userService) {
 
         $scope.submit = function(form){
             if(form.$valid){
@@ -15,5 +15,7 @@
         };
 
         $scope.start();
-    });
+    }
+    app.controller('loginController', ['$scope', 'userService', loginController] );
+    
 }(this));

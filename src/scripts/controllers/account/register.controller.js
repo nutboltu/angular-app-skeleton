@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    app.controller('registerController', function($rootScope, $scope, $sce, userService) {
+    function registerController($rootScope, $scope, userService) {
 
         $scope.submit = function(form){
             if(form.$valid){
@@ -8,7 +8,7 @@
                     if(results.success){
                         $scope.message = results;
                         $rootScope.$emit("header:title",results.title);
-                        $scope.message.description = $sce.trustAsHtml($scope.message.description);
+
                     }
                 });
             }
@@ -19,5 +19,6 @@
 
         $scope.start();
 
-    });
+    }
+    app.controller('registerController', ['$rootScope', '$scope', 'userService', registerController]);
 }(this));

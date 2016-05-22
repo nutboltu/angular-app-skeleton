@@ -1,4 +1,5 @@
 (function() {
+    'use strict';
     app.directive('confirmInput', function() {
         return {
             require: "ngModel",

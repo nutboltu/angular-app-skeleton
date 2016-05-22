@@ -1,6 +1,5 @@
 (function(){
-
-    app.service('apiService', function(APP_ENV){
+    function apiService(APP_ENV){
 
         var self = this;
 
@@ -9,6 +8,7 @@
             REGISTER: APP_ENV.api + '/user/register'
         };
 
-    })
+    }
+    app.service('apiService', ['APP_ENV', apiService]);
 
 }).call(this);

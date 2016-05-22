@@ -1,8 +1,8 @@
 (function () {
-    app.config(['$httpProvider',
-        function ($httpProvider) {
+    'use strict';
+    function appConfig($httpProvider) {
 
-            $httpProvider.interceptors.push('authInterceptor');
-        }]);
-
+        $httpProvider.interceptors.push('authInterceptor');
+    }
+    app.config(['$httpProvider', appConfig]);
 }).call(this);

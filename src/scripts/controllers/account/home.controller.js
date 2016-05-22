@@ -1,10 +1,11 @@
 (function () {
     'use strict';
-    app.controller('homeController', function($scope) {
-
+    function homeController($scope){
         $scope.start = function(){
 
         };
         $scope.start();
-    });
+
+    }
+    app.controller('homeController',['$scope', homeController]);
 }(this));
