@@ -7,10 +7,11 @@ var connect = require('gulp-connect');
 var gulpNgConfig = require('gulp-ng-config');
 var includeSources = require('gulp-include-source');
 var jade        = require('gulp-jade');
+var minify = require('gulp-minify');
 var sass = require('gulp-ruby-sass');
 
 var devTasks  = ['env', 'libs', 'bootstrap-fonts', 'font-awesome-fonts','images','sass','jade','index','scripts', 'simple-server', 'watch'];
-var prodTasks = ['env', 'libs', 'bootstrap-fonts', 'font-awesome-fonts','images','sass','jade','index','scripts'];
+var prodTasks = ['env', 'libs', 'bootstrap-fonts', 'font-awesome-fonts','images','sass','jade','index','minify-scripts'];
 
 // set environment variable
 var env ;
@@ -128,4 +129,22 @@ gulp.task('index-reload',  function(){
         .pipe(connect.reload());
 });
 
+gulp.task('minify-scripts', function() {
+    gulp.src('src/*.js')
+        .pipe(minify({
+            noSource: true,
+            ext:{
+                min:'.js'
+            }
+        }))
+        .pipe(gulp.dest('dist'));
+    gulp.src('src/scripts/**/*.js')
+        .pipe(minify({
+            noSource: true,
+            ext:{
+                min:'.js'
+            }
+        }))
+        .pipe(gulp.dest('dist/scripts'))
+});
 
