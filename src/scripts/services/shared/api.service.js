@@ -1,3 +1,5 @@
+'use strict';
+
 (function(){
     function apiService(APP_ENV){
 
@@ -11,4 +13,4 @@
     }
     app.service('apiService', ['APP_ENV', apiService]);
 
-}).call(this);
+})();

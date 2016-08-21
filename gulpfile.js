@@ -1,33 +1,20 @@
 var gulp = require('gulp');
-var argv = require('yargs').argv;
 var clean = require('gulp-clean');
 var config = require('./config/config.json');
 var concat = require('gulp-concat');
 var connect = require('gulp-connect');
 var gulpNgConfig = require('gulp-ng-config');
 var includeSources = require('gulp-include-source');
-var jade        = require('gulp-jade');
+var jade = require('gulp-jade');
 var minify = require('gulp-minify');
 var sass = require('gulp-ruby-sass');
 
-var devTasks  = ['env', 'libs', 'bootstrap-fonts', 'font-awesome-fonts','images','sass','jade','index','scripts', 'simple-server', 'watch'];
-var prodTasks = ['env', 'libs', 'bootstrap-fonts', 'font-awesome-fonts','images','sass','jade','index','minify-scripts'];
+var devTasks = ['env-dev',   'libs', 'bootstrap-fonts', 'font-awesome-fonts', 'images', 'sass', 'jade', 'index', 'scripts', 'simple-server', 'watch'];
+var prodTasks = ['env-prod', 'libs', 'bootstrap-fonts', 'font-awesome-fonts', 'images', 'sass', 'jade', 'index', 'minify-scripts'];
 
 // set environment variable
-var env ;
-if (typeof argv.env !== "undefined") {
-    env = argv.env;
-}
-if(env == "dev"){
-    console.log("environment: dev");
-    gulp.task('run', devTasks);
-}
-else{
-    env = "prod";
-    console.log("default environment: prod");
-    gulp.task('run', prodTasks);
-}
-
+gulp.task('run-dev', devTasks);
+gulp.task('run-prod', prodTasks);
 
 //All Tasks
 gulp.task('clean', function () {
@@ -35,31 +22,40 @@ gulp.task('clean', function () {
         .pipe(clean());
 });
 
-gulp.task('env', function () {
-    //name of the app is myApp
+gulp.task('env-dev', function () {
+
     gulp.src('config/env.json')
-        .pipe(gulpNgConfig('myApp',{
-            environment: env,
+        .pipe(gulpNgConfig(config.appName, {
+            environment: 'dev',
+            createModule: false
+        }))
+        .pipe(gulp.dest('dist/'))
+});
+gulp.task('env-prod', function () {
+
+    gulp.src('config/env.json')
+        .pipe(gulpNgConfig(config.appName, {
+            environment: 'prod',
             createModule: false
         }))
         .pipe(gulp.dest('dist/'))
 });
 
-gulp.task('simple-server', function(){
+gulp.task('simple-server', function () {
     connect.server(config.serve);
 });
 
-gulp.task('watch', function(){
-    
+gulp.task('watch', function () {
+
     gulp.watch(config.path.sass.all, ['sass', 'css-reload']);
-    gulp.watch(config.path.views.src,['jade','index','html-reload', 'index-reload']);
-    gulp.watch(config.path.scripts, ['index','scripts','js-reload']);
-    gulp.watch(config.path.index.src, ['index','index-reload']);
+    gulp.watch(config.path.views.src, ['jade', 'index', 'html-reload', 'index-reload']);
+    gulp.watch(config.path.scripts, ['index', 'scripts', 'js-reload']);
+    gulp.watch(config.path.index.src, ['index', 'index-reload']);
 });
 
-gulp.task('libs', function(){
+gulp.task('libs', function () {
 
-     gulp.src(config.path.js)
+    gulp.src(config.path.js)
         .pipe(gulp.dest('dist/js'));
     gulp.src(config.path.css)
         .pipe(gulp.dest('dist/css'));
@@ -76,14 +72,14 @@ gulp.task('font-awesome-fonts', function () {
         .pipe(gulp.dest('dist/fonts'));
 });
 
-gulp.task('sass', function(){
+gulp.task('sass', function () {
 
     return sass(config.path.sass.src)
         .on('error', sass.logError)
         .pipe(gulp.dest(config.path.sass.dist));
 });
 
-gulp.task('images', function() {
+gulp.task('images', function () {
     gulp.src(config.path.img.src)
         .pipe(gulp.dest(config.path.img.dist));
 });
@@ -93,8 +89,8 @@ gulp.task('scripts', function () {
         .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('js-reload', function(){
-   return gulp.src(config.path.scripts)
+gulp.task('js-reload', function () {
+    return gulp.src(config.path.scripts)
         .pipe(connect.reload());
 });
 
@@ -103,19 +99,19 @@ gulp.task('html-reload', function () {
         .pipe(connect.reload());
 });
 
-gulp.task('css-reload', ['sass'], function(){
+gulp.task('css-reload', ['sass'], function () {
     return gulp.src(config.path.css)
         .pipe(connect.reload());
 });
 
-gulp.task('jade', function(){
+gulp.task('jade', function () {
     return gulp.src(config.path.views.src)
         .pipe(jade({pretty: true}))
         .pipe(gulp.dest(config.path.views.dist));
 
 });
 
-gulp.task('index', function(){
+gulp.task('index', function () {
     return gulp.src(config.path.index.src)
         .pipe(jade({
             pretty: true
@@ -124,25 +120,25 @@ gulp.task('index', function(){
         .pipe(gulp.dest(config.path.index.dist));
 });
 
-gulp.task('index-reload',  function(){
+gulp.task('index-reload', function () {
     return gulp.src(config.serve.index)
         .pipe(connect.reload());
 });
 
-gulp.task('minify-scripts', function() {
+gulp.task('minify-scripts', function () {
     gulp.src('src/*.js')
         .pipe(minify({
             noSource: true,
-            ext:{
-                min:'.js'
+            ext: {
+                min: '.js'
             }
         }))
         .pipe(gulp.dest('dist'));
     gulp.src('src/scripts/**/*.js')
         .pipe(minify({
             noSource: true,
-            ext:{
-                min:'.js'
+            ext: {
+                min: '.js'
             }
         }))
         .pipe(gulp.dest('dist/scripts'))

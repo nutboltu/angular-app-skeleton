@@ -1,4 +1,7 @@
+'use strict';
+
 (function(){
+
     function userService($http, $q, $state, $window, apiService){
 
         var self = this;
@@ -10,42 +13,50 @@
         }
 
         self.isAuthenticated = function(){
+
             return  !!$window.localStorage.getItem('token');
         };
 
         self.login = function(data){
 
             var defer = $q.defer();
+
             $http.post(apiService.USER.LOGIN, data)
                 .success(function(results){
-                    loginHandler(results.data);
+                    loginHandler(results);
                     $state.go('home');
-                }).error(function(results){
-                defer.resolve(results.message);
+                })
+                .error(function(error){
+                    defer.resolve(error);
+                });
 
-            });
             return defer.promise;
         };
 
         self.logout = function(){
+
             $window.localStorage.clear();
             $state.go('login');
-
         };
 
         self.register = function(data){
+
             var defer = $q.defer();
+
             $http.post(apiService.USER.REGISTER, data)
                 .success(function(results){
                     defer.resolve(results);
-                }).error(function(results){
-                defer.resolve(results.message);
-            });
+                })
+                .error(function(error){
+                    defer.reject(error);
+                });
+
             return defer.promise;
         };
 
     }
-    app.service('userService', ['$http', '$q', '$state', '$window', 'apiService', userService]);
 
+    app.service('userService', ['$http', '$q', '$state', '$window',
+        'apiService', userService]);
 
-}).call(this);
+})();

@@ -1,26 +1,30 @@
+var config = require('./config/config.json');
+
 var appModules = [
             'ngAnimate',
             'ui.bootstrap',
             'ui.router'];
 
-var app = angular.module('myApp', appModules);
+var app = angular.module(config.appName, appModules);
 
-app.run(function ($rootScope, $state, userService) {
-    $rootScope.$on("$stateChangeStart", function (event, toState, toParams) {  
+function run($rootScope, $state, userService) {
+    $rootScope.$on("$stateChangeStart", function (event, toState, toParams) {
 
-        $rootScope.loggedIn = userService.isAuthenticated(); 
+        $rootScope.loggedIn = userService.isAuthenticated();
 
-        var loginRequired = toState.loginRequired;  
+        var loginRequired = toState.loginRequired;
 
         //check if user is logged in 
-        if (userService.isAuthenticated() && loginRequired == false) { 
-            event.preventDefault(); 
+        if (userService.isAuthenticated() && loginRequired == false) {
+            event.preventDefault();
             $state.go('home');
-              
-        } 
-        else if(!userService.isAuthenticated() && loginRequired == true) {  
-            event.preventDefault(); 
-            $state.go('login'); 
+
         }
-          });
-  });   
+        else if(!userService.isAuthenticated() && loginRequired == true) {
+            event.preventDefault();
+            $state.go('login');
+        }
+    });
+}
+
+app.run(['$rootScope', '$state', 'userService', run]);   

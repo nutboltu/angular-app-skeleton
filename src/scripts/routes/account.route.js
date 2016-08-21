@@ -1,61 +1,66 @@
+'use strict';
+
 (function () {
-    'use strict';
+
     function accountRouter($stateProvider, $urlRouterProvider) {
         $urlRouterProvider
             .otherwise('/');
 
         $stateProvider
-            .state('home',{
+            .state('home', {
                 url: '/',
                 views: {
                     'header': {
                         templateUrl: 'views/shared/_header.html',
                         controller: 'headerController'
                     },
-                    'main':{
+                    'main': {
                         controller: 'homeController',
                         templateUrl: 'views/account/home.html'
                     }
                 },
                 cache: false,
-                title:'Home',
+                title: 'Home',
                 loginRequired: true
             })
+
             .state("login", {
                 url: "/login",
-                views:{
+                views: {
                     'header': {
                         templateUrl: 'views/shared/_header.html',
                         controller: 'headerController'
                     },
-                    'main':{
+                    'main': {
                         controller: 'loginController',
                         templateUrl: 'views/account/login.html'
                     }
 
                 },
                 cache: false,
-                title:'Login',
+                title: 'Login',
                 loginRequired: false
             })
+
             .state("register", {
                 url: "/register",
-                views:{
+                views: {
                     'header': {
                         templateUrl: 'views/shared/_header.html',
                         controller: 'headerController'
                     },
-                    'main':{
+                    'main': {
                         controller: 'registerController',
                         templateUrl: 'views/account/register.html'
                     }
 
                 },
                 cache: false,
-                title:'Create Account',
+                title: 'Create Account',
                 loginRequired: false
             });
     }
-    app.config(['$stateProvider', '$urlRouterProvider',accountRouter]);
 
-}(this));
+    app.config(['$stateProvider', '$urlRouterProvider', accountRouter]);
+
+})();

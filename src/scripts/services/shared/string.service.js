@@ -1,3 +1,5 @@
+'use strict';
+
 (function(){
 
     function stringService(){
@@ -7,6 +9,7 @@
         self.EMPTY = '';
 
     }
+
     app.service('stringService', [stringService]);
 
-}).call(this);
+})();

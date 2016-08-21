@@ -4,7 +4,7 @@ This is the seed of an angular application.
 
 It uses :
 
-* AngularJs
+* Angular(1.5)
 * Angular UI Router
 * Jade
 * Gulp
@@ -41,13 +41,13 @@ Run gulp in the root directory.
 
 ### For development
 ```
-gulp run --env=dev
+gulp run-dev
 ```
 The app will run in http://localhost:3000
 
 ### For Production
 ```
-gulp run --env=prod
+gulp run-prod
 ```
 and copy the dist/ directory to the server. You can clean the dist file using following command.
 ```
