@@ -3,7 +3,6 @@
 @import "variables";
 
 @import "account";
-@import "button";
 @import "error";
 @import "navbar";
 @import "utilities";
@@ -11,7 +10,7 @@
 html *
 {
   border-radius: 0 !important;
-
+  font-family: 'Slabo 27px', serif;
 }
 
 

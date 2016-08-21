@@ -4,7 +4,7 @@ This is the seed of an angular application.
 
 It uses :
 
-* Angular(1.5)
+* Angular (1.*)
 * Angular UI Router
 * Jade
 * Gulp

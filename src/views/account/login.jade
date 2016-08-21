@@ -1,27 +1,19 @@
-div(class="container account-form")
+.container.account-form
     form(name="form", novalidate)
         .input-row
-            input.form-control.input-field(type="email", required, placeholder="*Email address", onfocus="this.placeholder = ''", onblur="this.placeholder = '*Email address'", ng-model="credentials.email", name="uEmail")
+            input.form-control.input-field(type="email", required, placeholder="Email", onfocus="this.placeholder = ''", ng-model="credentials.email", name="uEmail")
             div(ng-show="form.$submitted || form.uEmail.$touched")
-                p.validation-error(ng-show="form.uEmail.$error.required") Please enter an email address
-                p.validation-error(ng-show="form.uEmail.$error.email") Invalid email address
+                .validation-error(ng-show="form.uEmail.$error.required") Please enter an email address
+                .validation-error(ng-show="form.uEmail.$error.email") Invalid email address
         .input-row
-            input.form-control.input-field(type="password" placeholder="*Password" onfocus="this.placeholder = ''" onblur="this.placeholder = '*Password'" ng-model="credentials.password", name="uPassword", required, ng-minlength="6" )
+            input.form-control.input-field(type="password" placeholder="Password" onfocus="this.placeholder = ''" ng-model="credentials.password", name="uPassword", required, ng-minlength="6" )
             div(ng-show="form.$submitted || form.uPassword.$touched")
-                p.validation-error(ng-show="form.uPassword.$error.required") Please enter a password
-                p.validation-error(ng-show="form.uPassword.$error.minlength") Please use 6 or more characters
-
+                .validation-error(ng-show="form.uPassword.$error.required") Please enter a password
+                .validation-error(ng-show="form.uPassword.$error.minlength") Please use 6 or more characters
 
         .input-row
-            button(class="btn btn-lg btn-success btn-block" ng-click="submit(form)") LOGIN
+            button.btn.btn-primary.btn-block(ng-click="submit(form)") LOGIN
 
-        div
-            div(class="checkbox")
-                label
-                    input(type="checkbox" value="remember-me")
-                    span Keep me logged in
-            div(class="input-row pull-right")
-                p(class="login-help")
-                    a Forgot password?
-                p(class="login-help")
-                    a(ui-sref="register") Create account
+        .input-row.pull-right
+            p.login-help
+                a(ui-sref="register") Create an account

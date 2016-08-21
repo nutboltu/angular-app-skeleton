@@ -1,11 +1,11 @@
-var config = require('./config/config.json');
+'use strict';
 
 var appModules = [
             'ngAnimate',
             'ui.bootstrap',
             'ui.router'];
 
-var app = angular.module(config.appName, appModules);
+var app = angular.module('myApp', appModules);
 
 function run($rootScope, $state, userService) {
     $rootScope.$on("$stateChangeStart", function (event, toState, toParams) {

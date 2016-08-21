@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var clean = require('gulp-clean');
 var config = require('./config/config.json');
-var concat = require('gulp-concat');
 var connect = require('gulp-connect');
 var gulpNgConfig = require('gulp-ng-config');
 var includeSources = require('gulp-include-source');

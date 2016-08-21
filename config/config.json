@@ -50,8 +50,7 @@
         }
     },
     "serve": {
-        "root": "dist/",
-        "index": "dist/index.html",
+        "root": "dist",
         "port": 3000,
         "livereload": true
 

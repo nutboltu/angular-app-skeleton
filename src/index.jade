@@ -3,7 +3,7 @@ html
         meta(charset="utf-8")
         title Angular app skeleton
         link(type='text/css', rel='stylesheet', href='css/stylesheet.css')
-
+        link(href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet")
 
         script(type="text/javascript" src="js/angular.min.js")
         script(type="text/javascript" src="js/angular-ui-router.js")
@@ -21,9 +21,9 @@ html
         div(class="page-container" )
 
             div(ui-view="header")
-            div(class="container has-top-fixed-bar")
-                div(class="row row-offcanvas row-offcanvas-left")
-                    div(class="col-xs-12 col-sm-12", ui-view="main")
+            .container.has-top-fixed-bar
+                .row.row-offcanvas.row-offcanvas-left
+                    .col-xs-12.col-sm-12( ui-view="main")
                     div(ui-view="menu")
-                    div(class="col-xs-12 col-sm-9", ui-view="content")
+                    .col-xs-12.col-sm-9( ui-view="content")
 
