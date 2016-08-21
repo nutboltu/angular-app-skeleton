@@ -1,7 +1,7 @@
 {
   "name": "angular.app.skeleton",
   "description": "This is a skeleton of an angular application",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "",
   "license": "MIT",
   "private": true,
