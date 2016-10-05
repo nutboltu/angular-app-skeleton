@@ -25,11 +25,12 @@
     "gulp-connect": "5.0.0",
     "gulp-include-source": "0.0.5",
     "gulp-jade": "1.1.0",
+    "gulp-less": "3.1.0",
     "gulp-minify": "0.0.14",
     "gulp-ng-config": "1.3.1",
     "gulp-ruby-sass": "2.1.0"
   },
   "scripts": {
-    "bower-install": "bower install"
+    "install": "bower install"
   }
 }

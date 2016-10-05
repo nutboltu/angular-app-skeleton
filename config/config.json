@@ -1,5 +1,5 @@
 {
-    "appName": "myApp",
+    "appName": "cleverHeart",
     "use_sass": false,
     "bases": {
         "dist": "dist/",
@@ -22,6 +22,11 @@
         "sass": {
             "all": "src/scss/**/*.scss",
             "src":"src/scss/stylesheet.scss",
+            "dist":  "dist/css"
+        },
+        "less": {
+            "all": "src/less/**/*.less",
+            "src":"src/less/style.less",
             "dist":  "dist/css"
         },
         "fonts": {
