@@ -1,5 +1,5 @@
 {
-    "appName": "cleverHeart",
+    "appName": "myApp",
     "use_sass": false,
     "bases": {
         "dist": "dist/",
