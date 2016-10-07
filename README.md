@@ -8,7 +8,8 @@ It uses :
 * Angular UI Router
 * Jade
 * Gulp
-* Twitter Bootstrap (Full CSS or Sass)
+* Sass/Less
+* Twitter Bootstrap 
 * Font Awesome
 
 ## Installation
