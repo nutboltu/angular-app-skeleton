@@ -24,6 +24,11 @@
             "src":"src/scss/stylesheet.scss",
             "dist":  "dist/css"
         },
+        "less": {
+            "all": "src/less/**/*.less",
+            "src":"src/less/style.less",
+            "dist":  "dist/css"
+        },
         "fonts": {
             "bootstrap": "src/bower_components/bootstrap/dist/fonts/*",
             "fontAwesome":  "src/bower_components/font-awesome/fonts/*"
